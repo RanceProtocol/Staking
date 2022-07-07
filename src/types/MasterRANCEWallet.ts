@@ -20,21 +20,28 @@ import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
 export interface MasterRANCEWalletInterface extends utils.Interface {
   contractName: "MasterRANCEWallet";
   functions: {
-    "MasterRANCE()": FunctionFragment;
     "RANCE()": FunctionFragment;
+    "addMasterRANCE(address)": FunctionFragment;
+    "masters(address)": FunctionFragment;
     "owner()": FunctionFragment;
+    "removeMasterRANCE(address)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "safeRANCETransfer(address,uint256)": FunctionFragment;
-    "setMasterRANCE(address)": FunctionFragment;
+    "safeTokenTransfer(address,uint256,address)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "MasterRANCE",
-    values?: undefined
-  ): string;
   encodeFunctionData(functionFragment: "RANCE", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "addMasterRANCE",
+    values: [string]
+  ): string;
+  encodeFunctionData(functionFragment: "masters", values: [string]): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "removeMasterRANCE",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "renounceOwnership",
     values?: undefined
@@ -44,20 +51,25 @@ export interface MasterRANCEWalletInterface extends utils.Interface {
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "setMasterRANCE",
-    values: [string]
+    functionFragment: "safeTokenTransfer",
+    values: [string, BigNumberish, string]
   ): string;
   encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
   ): string;
 
+  decodeFunctionResult(functionFragment: "RANCE", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "MasterRANCE",
+    functionFragment: "addMasterRANCE",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "RANCE", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "masters", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "removeMasterRANCE",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
     data: BytesLike
@@ -67,7 +79,7 @@ export interface MasterRANCEWalletInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "setMasterRANCE",
+    functionFragment: "safeTokenTransfer",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -118,11 +130,21 @@ export interface MasterRANCEWallet extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    MasterRANCE(overrides?: CallOverrides): Promise<[string]>;
-
     RANCE(overrides?: CallOverrides): Promise<[string]>;
 
+    addMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    masters(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
+
     owner(overrides?: CallOverrides): Promise<[string]>;
+
+    removeMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -134,8 +156,10 @@ export interface MasterRANCEWallet extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    setMasterRANCE(
-      _MasterRANCE: string,
+    safeTokenTransfer(
+      _to: string,
+      _amount: BigNumberish,
+      _token: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -145,11 +169,21 @@ export interface MasterRANCEWallet extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
-  MasterRANCE(overrides?: CallOverrides): Promise<string>;
-
   RANCE(overrides?: CallOverrides): Promise<string>;
 
+  addMasterRANCE(
+    _MasterRANCE: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  masters(arg0: string, overrides?: CallOverrides): Promise<boolean>;
+
   owner(overrides?: CallOverrides): Promise<string>;
+
+  removeMasterRANCE(
+    _MasterRANCE: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -161,8 +195,10 @@ export interface MasterRANCEWallet extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  setMasterRANCE(
-    _MasterRANCE: string,
+  safeTokenTransfer(
+    _to: string,
+    _amount: BigNumberish,
+    _token: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -172,11 +208,21 @@ export interface MasterRANCEWallet extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    MasterRANCE(overrides?: CallOverrides): Promise<string>;
-
     RANCE(overrides?: CallOverrides): Promise<string>;
 
+    addMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    masters(arg0: string, overrides?: CallOverrides): Promise<boolean>;
+
     owner(overrides?: CallOverrides): Promise<string>;
+
+    removeMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
@@ -186,10 +232,12 @@ export interface MasterRANCEWallet extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    setMasterRANCE(
-      _MasterRANCE: string,
+    safeTokenTransfer(
+      _to: string,
+      _amount: BigNumberish,
+      _token: string,
       overrides?: CallOverrides
-    ): Promise<void>;
+    ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
@@ -209,11 +257,21 @@ export interface MasterRANCEWallet extends BaseContract {
   };
 
   estimateGas: {
-    MasterRANCE(overrides?: CallOverrides): Promise<BigNumber>;
-
     RANCE(overrides?: CallOverrides): Promise<BigNumber>;
 
+    addMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    masters(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
+
     owner(overrides?: CallOverrides): Promise<BigNumber>;
+
+    removeMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -225,8 +283,10 @@ export interface MasterRANCEWallet extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    setMasterRANCE(
-      _MasterRANCE: string,
+    safeTokenTransfer(
+      _to: string,
+      _amount: BigNumberish,
+      _token: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -237,11 +297,24 @@ export interface MasterRANCEWallet extends BaseContract {
   };
 
   populateTransaction: {
-    MasterRANCE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     RANCE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    addMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    masters(
+      arg0: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    removeMasterRANCE(
+      _MasterRANCE: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -253,8 +326,10 @@ export interface MasterRANCEWallet extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    setMasterRANCE(
-      _MasterRANCE: string,
+    safeTokenTransfer(
+      _to: string,
+      _amount: BigNumberish,
+      _token: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

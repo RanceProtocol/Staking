@@ -834,49 +834,6 @@
         "SafeMath"
       ]
     },
-    "/Users/nonse/Desktop/Work/Rance/Staking/contracts/Farm.sol": {
-      "lastModificationDate": 1657148954158,
-      "contentHash": "46a0ae893aabbf3966e7ae81bb0af550",
-      "sourceName": "contracts/Farm.sol",
-      "solcConfig": {
-        "version": "0.8.2",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./interfaces/IBEP20.sol",
-        "./utils/SafeBEP20.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "./MasterRANCEWallet.sol"
-      ],
-      "versionPragmas": [
-        "0.8.2"
-      ],
-      "artifacts": [
-        "IMigratorChef",
-        "MasterRANCE"
-      ]
-    },
     "/Users/nonse/Desktop/Work/Rance/Staking/node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
       "lastModificationDate": 1657146910308,
       "contentHash": "5365090efc586b728719e562ebfed0d6",
@@ -1094,8 +1051,8 @@
       ]
     },
     "/Users/nonse/Desktop/Work/Rance/Staking/contracts/MasterRANCEWallet.sol": {
-      "lastModificationDate": 1657147308715,
-      "contentHash": "04d7b4cefa89df9d05ee3cc9bb601d8e",
+      "lastModificationDate": 1657179565443,
+      "contentHash": "3882dd863aed6ace99a52ae1a74d0b19",
       "sourceName": "contracts/MasterRANCEWallet.sol",
       "solcConfig": {
         "version": "0.8.2",
@@ -1589,6 +1546,92 @@
       "artifacts": [
         "LPToken1",
         "LPToken2"
+      ]
+    },
+    "/Users/nonse/Desktop/Work/Rance/Staking/contracts/Farm1.sol": {
+      "lastModificationDate": 1657176371996,
+      "contentHash": "46a0ae893aabbf3966e7ae81bb0af550",
+      "sourceName": "contracts/Farm1.sol",
+      "solcConfig": {
+        "version": "0.8.2",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/math/SafeMath.sol",
+        "./interfaces/IBEP20.sol",
+        "./utils/SafeBEP20.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "./MasterRANCEWallet.sol"
+      ],
+      "versionPragmas": [
+        "0.8.2"
+      ],
+      "artifacts": [
+        "IMigratorChef",
+        "MasterRANCE"
+      ]
+    },
+    "/Users/nonse/Desktop/Work/Rance/Staking/contracts/Farm2.sol": {
+      "lastModificationDate": 1657176991637,
+      "contentHash": "5922a847db2c7f4b52420f005b319bca",
+      "sourceName": "contracts/Farm2.sol",
+      "solcConfig": {
+        "version": "0.8.2",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/math/SafeMath.sol",
+        "./interfaces/IBEP20.sol",
+        "./utils/SafeBEP20.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "./MasterRANCEWallet.sol"
+      ],
+      "versionPragmas": [
+        "0.8.2"
+      ],
+      "artifacts": [
+        "IMigratorChef",
+        "MasterMUSD"
       ]
     }
   }

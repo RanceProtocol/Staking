@@ -69,9 +69,21 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MasterCRP__factory>;
     getContractFactory(
+      name: "IMigratorChef",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMigratorChef__factory>;
+    getContractFactory(
       name: "MasterRANCE",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MasterRANCE__factory>;
+    getContractFactory(
+      name: "IMigratorChef",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMigratorChef__factory>;
+    getContractFactory(
+      name: "MasterMUSD",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MasterMUSD__factory>;
     getContractFactory(
       name: "IBEP20",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -176,10 +188,25 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.MasterCRP>;
     getContractAt(
+      name: "IMigratorChef",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMigratorChef>;
+    getContractAt(
       name: "MasterRANCE",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MasterRANCE>;
+    getContractAt(
+      name: "IMigratorChef",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMigratorChef>;
+    getContractAt(
+      name: "MasterMUSD",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MasterMUSD>;
     getContractAt(
       name: "IBEP20",
       address: string,

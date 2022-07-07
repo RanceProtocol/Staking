@@ -352,6 +352,2366 @@
         }
       },
       "IMigratorChef": {
+        "src": "contracts/Farm2.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "migrate(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterRANCE": {
+        "src": "contracts/Farm1.sol:36",
+        "version": {
+          "withMetadata": "f150c26021f530fc1d3b54a679b67d708fbf9d3140afc5b0aa71e816281f2436",
+          "withoutMetadata": "bb2d18e1b2fb70737abcb732dc6637adca5afc5c73264ba8842d207484c7ced7",
+          "linkedWithoutMetadata": "bb2d18e1b2fb70737abcb732dc6637adca5afc5c73264ba8842d207484c7ced7"
+        },
+        "inherit": [
+          "OwnableUpgradeable",
+          "UUPSUpgradeable",
+          "ERC1967UpgradeUpgradeable",
+          "PausableUpgradeable",
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "SafeMath",
+          "SafeBEP20"
+        ],
+        "methods": [
+          "initialize(address,uint256,uint256,address)",
+          "updateMultiplier(uint256)",
+          "poolLength()",
+          "add(uint256,address,bool)",
+          "set(uint256,uint256,bool)",
+          "setMigrator(address)",
+          "migrate(uint256)",
+          "getMultiplier(uint256,uint256)",
+          "pendingRANCE(uint256,address)",
+          "massUpdatePools()",
+          "updatePool(uint256)",
+          "deposit(uint256,uint256)",
+          "withdraw(uint256,uint256)",
+          "compound()",
+          "emergencyWithdraw(uint256)",
+          "pause()",
+          "unpause()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterRANCE",
+              "label": "RANCE",
+              "type": "t_contract(IBEP20)4340",
+              "src": "contracts/Farm1.sol:66"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "RANCEPerBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:68"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "BONUS_MULTIPLIER",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:70"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "migrator",
+              "type": "t_contract(IMigratorChef)1871",
+              "src": "contracts/Farm1.sol:72"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "wallet",
+              "type": "t_contract(MasterRANCEWallet)4262",
+              "src": "contracts/Farm1.sol:74"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "poolInfo",
+              "type": "t_array(t_struct(PoolInfo)1901_storage)dyn_storage",
+              "src": "contracts/Farm1.sol:77"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "userInfo",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))",
+              "src": "contracts/Farm1.sol:79"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "totalAllocPoint",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:81"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "startBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:83"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4340": {
+              "label": "contract IBEP20"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_contract(IMigratorChef)1871": {
+              "label": "contract IMigratorChef"
+            },
+            "t_contract(MasterRANCEWallet)4262": {
+              "label": "contract MasterRANCEWallet"
+            },
+            "t_array(t_struct(PoolInfo)1901_storage)dyn_storage": {
+              "label": "struct MasterRANCE.PoolInfo[]"
+            },
+            "t_struct(PoolInfo)1901_storage": {
+              "label": "struct MasterRANCE.PoolInfo",
+              "members": [
+                {
+                  "label": "lpToken",
+                  "type": "t_contract(IBEP20)4340"
+                },
+                {
+                  "label": "allocPoint",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "lastRewardBlock",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "accRANCEPerShare",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))": {
+              "label": "mapping(uint256 => mapping(address => struct MasterRANCE.UserInfo))"
+            },
+            "t_mapping(t_address,t_struct(UserInfo)1891_storage)": {
+              "label": "mapping(address => struct MasterRANCE.UserInfo)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(UserInfo)1891_storage": {
+              "label": "struct MasterRANCE.UserInfo",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "rewardDebt",
+                  "type": "t_uint256"
+                }
+              ]
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterMUSD": {
+        "src": "contracts/Farm2.sol:36",
+        "version": {
+          "withMetadata": "946b834bdb8e518d3e98f3dae06b8d787515484c74d5870a26db856909dacafb",
+          "withoutMetadata": "e31c0d478171037565883c86908f3873f5837d4124fe82131476512bb4338a5c",
+          "linkedWithoutMetadata": "e31c0d478171037565883c86908f3873f5837d4124fe82131476512bb4338a5c"
+        },
+        "inherit": [
+          "OwnableUpgradeable",
+          "UUPSUpgradeable",
+          "ERC1967UpgradeUpgradeable",
+          "PausableUpgradeable",
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "SafeMath",
+          "SafeBEP20"
+        ],
+        "methods": [
+          "initialize(address,uint256,uint256,address)",
+          "updateMultiplier(uint256)",
+          "poolLength()",
+          "add(uint256,address,bool)",
+          "set(uint256,uint256,bool)",
+          "setMigrator(address)",
+          "migrate(uint256)",
+          "getMultiplier(uint256,uint256)",
+          "pendingMUSD(uint256,address)",
+          "massUpdatePools()",
+          "updatePool(uint256)",
+          "deposit(uint256,uint256)",
+          "withdraw(uint256,uint256)",
+          "compound()",
+          "emergencyWithdraw(uint256)",
+          "pause()",
+          "unpause()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterMUSD",
+              "label": "MUSD",
+              "type": "t_contract(IBEP20)4340",
+              "src": "contracts/Farm2.sol:66"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "MUSDPerBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:68"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "BONUS_MULTIPLIER",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:70"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "migrator",
+              "type": "t_contract(IMigratorChef)2987",
+              "src": "contracts/Farm2.sol:72"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "wallet",
+              "type": "t_contract(MasterRANCEWallet)4262",
+              "src": "contracts/Farm2.sol:74"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "poolInfo",
+              "type": "t_array(t_struct(PoolInfo)3017_storage)dyn_storage",
+              "src": "contracts/Farm2.sol:77"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "userInfo",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3007_storage))",
+              "src": "contracts/Farm2.sol:79"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "totalAllocPoint",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:81"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "startBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:83"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4340": {
+              "label": "contract IBEP20"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_contract(IMigratorChef)2987": {
+              "label": "contract IMigratorChef"
+            },
+            "t_contract(MasterRANCEWallet)4262": {
+              "label": "contract MasterRANCEWallet"
+            },
+            "t_array(t_struct(PoolInfo)3017_storage)dyn_storage": {
+              "label": "struct MasterMUSD.PoolInfo[]"
+            },
+            "t_struct(PoolInfo)3017_storage": {
+              "label": "struct MasterMUSD.PoolInfo",
+              "members": [
+                {
+                  "label": "lpToken",
+                  "type": "t_contract(IBEP20)4340"
+                },
+                {
+                  "label": "allocPoint",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "lastRewardBlock",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "accMUSDPerShare",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3007_storage))": {
+              "label": "mapping(uint256 => mapping(address => struct MasterMUSD.UserInfo))"
+            },
+            "t_mapping(t_address,t_struct(UserInfo)3007_storage)": {
+              "label": "mapping(address => struct MasterMUSD.UserInfo)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(UserInfo)3007_storage": {
+              "label": "struct MasterMUSD.UserInfo",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "rewardDebt",
+                  "type": "t_uint256"
+                }
+              ]
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterRANCEWallet": {
+        "src": "contracts/MasterRANCEWallet.sol:8",
+        "version": {
+          "withMetadata": "277875ba515d3f57b2f7256536df05cf178ad3ad407b99e7c9e45eb9137e17f1",
+          "withoutMetadata": "e13aed1b7a61e1e1b395a84b82e68257226c4dc4bdfc89c93830e0a3fe0fee72",
+          "linkedWithoutMetadata": "e13aed1b7a61e1e1b395a84b82e68257226c4dc4bdfc89c93830e0a3fe0fee72"
+        },
+        "inherit": [
+          "Ownable",
+          "Context"
+        ],
+        "libraries": [
+          "SafeBEP20"
+        ],
+        "methods": [
+          "(address)",
+          "addMasterRANCE(address)",
+          "removeMasterRANCE(address)",
+          "safeTokenTransfer(address,uint256,address)",
+          "safeRANCETransfer(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "MasterRANCEWallet",
+            "src": "contracts/MasterRANCEWallet.sol:14"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterRANCEWallet",
+              "label": "RANCE",
+              "type": "t_contract(IBEP20)4340",
+              "src": "contracts/MasterRANCEWallet.sol:11"
+            },
+            {
+              "contract": "MasterRANCEWallet",
+              "label": "masters",
+              "type": "t_mapping(t_address,t_bool)",
+              "src": "contracts/MasterRANCEWallet.sol:12"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4340": {
+              "label": "contract IBEP20"
+            },
+            "t_mapping(t_address,t_bool)": {
+              "label": "mapping(address => bool)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "IBEP20": {
+        "src": "contracts/interfaces/IBEP20.sol:8",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "SafeBEP20": {
+        "src": "contracts/utils/SafeBEP20.sol:17",
+        "version": {
+          "withMetadata": "b6a287dcfd3237f5abb3d18109e2a8869e762a661c81a43a429580b339f5a36c",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [
+          "Address"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      }
+    },
+    {
+      "OwnableUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:20",
+        "inherit": [
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
+            },
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "ERC1967UpgradeUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:18",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [
+          "StorageSlotUpgradeable",
+          "AddressUpgradeable"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ERC1967UpgradeUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "IBeaconUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol:8",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "implementation()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Initializable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:17",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "UUPSUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:20",
+        "inherit": [
+          "ERC1967UpgradeUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "upgradeTo(address)",
+          "upgradeToAndCall(address,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "UUPSUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:64"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "PausableUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:17",
+        "inherit": [
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "paused()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "PausableUpgradeable",
+              "label": "_paused",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:28"
+            },
+            {
+              "contract": "PausableUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:96"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "AddressUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol:8",
+        "version": {
+          "withMetadata": "fde3f15d183e5e4adb501d42de9202b654fb1ba86f54e91669d295220ea9dc67",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "ContextUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:16",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ContextUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "StorageSlotUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol:31",
+        "version": {
+          "withMetadata": "d97ce47a76206ff30e04246fd1439c8c09a0fbbdda81ab79e81107994b19dce6",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:19",
+        "inherit": [
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:27"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Ownable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:20"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "Address": {
+        "src": "@openzeppelin/contracts/utils/Address.sol:8",
+        "version": {
+          "withMetadata": "26611e32a15a00144207b601573c8db0b03bac6851e9edb16d9974217ed40294",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "delegatecall",
+            "src": "@openzeppelin/contracts/utils/Address.sol:185"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:15",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "SafeMath": {
+        "src": "@openzeppelin/contracts/utils/math/SafeMath.sol:15",
+        "version": {
+          "withMetadata": "0023e734e710c06754cbf37a92d68bb6f42a4cc6d154a145d945ec780b06c2f2",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "IMigratorChef": {
+        "src": "contracts/Farm2.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "migrate(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterRANCE": {
+        "src": "contracts/Farm1.sol:36",
+        "version": {
+          "withMetadata": "d6b5d8ab760d7bc70281ff5ae6e97c6437b3cee30c567ae15ca82f6a3b98b64a",
+          "withoutMetadata": "bb2d18e1b2fb70737abcb732dc6637adca5afc5c73264ba8842d207484c7ced7",
+          "linkedWithoutMetadata": "bb2d18e1b2fb70737abcb732dc6637adca5afc5c73264ba8842d207484c7ced7"
+        },
+        "inherit": [
+          "OwnableUpgradeable",
+          "UUPSUpgradeable",
+          "ERC1967UpgradeUpgradeable",
+          "PausableUpgradeable",
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "SafeMath",
+          "SafeBEP20"
+        ],
+        "methods": [
+          "initialize(address,uint256,uint256,address)",
+          "updateMultiplier(uint256)",
+          "poolLength()",
+          "add(uint256,address,bool)",
+          "set(uint256,uint256,bool)",
+          "setMigrator(address)",
+          "migrate(uint256)",
+          "getMultiplier(uint256,uint256)",
+          "pendingRANCE(uint256,address)",
+          "massUpdatePools()",
+          "updatePool(uint256)",
+          "deposit(uint256,uint256)",
+          "withdraw(uint256,uint256)",
+          "compound()",
+          "emergencyWithdraw(uint256)",
+          "pause()",
+          "unpause()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterRANCE",
+              "label": "RANCE",
+              "type": "t_contract(IBEP20)4342",
+              "src": "contracts/Farm1.sol:66"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "RANCEPerBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:68"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "BONUS_MULTIPLIER",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:70"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "migrator",
+              "type": "t_contract(IMigratorChef)1871",
+              "src": "contracts/Farm1.sol:72"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "wallet",
+              "type": "t_contract(MasterRANCEWallet)4264",
+              "src": "contracts/Farm1.sol:74"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "poolInfo",
+              "type": "t_array(t_struct(PoolInfo)1901_storage)dyn_storage",
+              "src": "contracts/Farm1.sol:77"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "userInfo",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))",
+              "src": "contracts/Farm1.sol:79"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "totalAllocPoint",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:81"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "startBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:83"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4342": {
+              "label": "contract IBEP20"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_contract(IMigratorChef)1871": {
+              "label": "contract IMigratorChef"
+            },
+            "t_contract(MasterRANCEWallet)4264": {
+              "label": "contract MasterRANCEWallet"
+            },
+            "t_array(t_struct(PoolInfo)1901_storage)dyn_storage": {
+              "label": "struct MasterRANCE.PoolInfo[]"
+            },
+            "t_struct(PoolInfo)1901_storage": {
+              "label": "struct MasterRANCE.PoolInfo",
+              "members": [
+                {
+                  "label": "lpToken",
+                  "type": "t_contract(IBEP20)4342"
+                },
+                {
+                  "label": "allocPoint",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "lastRewardBlock",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "accRANCEPerShare",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))": {
+              "label": "mapping(uint256 => mapping(address => struct MasterRANCE.UserInfo))"
+            },
+            "t_mapping(t_address,t_struct(UserInfo)1891_storage)": {
+              "label": "mapping(address => struct MasterRANCE.UserInfo)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(UserInfo)1891_storage": {
+              "label": "struct MasterRANCE.UserInfo",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "rewardDebt",
+                  "type": "t_uint256"
+                }
+              ]
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterMUSD": {
+        "src": "contracts/Farm2.sol:36",
+        "version": {
+          "withMetadata": "f9462b223e059f4f4ed4f68d6ec7bed2bcf950ca4bbdb71772db6d2b2bfde4f2",
+          "withoutMetadata": "e31c0d478171037565883c86908f3873f5837d4124fe82131476512bb4338a5c",
+          "linkedWithoutMetadata": "e31c0d478171037565883c86908f3873f5837d4124fe82131476512bb4338a5c"
+        },
+        "inherit": [
+          "OwnableUpgradeable",
+          "UUPSUpgradeable",
+          "ERC1967UpgradeUpgradeable",
+          "PausableUpgradeable",
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "SafeMath",
+          "SafeBEP20"
+        ],
+        "methods": [
+          "initialize(address,uint256,uint256,address)",
+          "updateMultiplier(uint256)",
+          "poolLength()",
+          "add(uint256,address,bool)",
+          "set(uint256,uint256,bool)",
+          "setMigrator(address)",
+          "migrate(uint256)",
+          "getMultiplier(uint256,uint256)",
+          "pendingMUSD(uint256,address)",
+          "massUpdatePools()",
+          "updatePool(uint256)",
+          "deposit(uint256,uint256)",
+          "withdraw(uint256,uint256)",
+          "compound()",
+          "emergencyWithdraw(uint256)",
+          "pause()",
+          "unpause()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterMUSD",
+              "label": "MUSD",
+              "type": "t_contract(IBEP20)4342",
+              "src": "contracts/Farm2.sol:66"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "MUSDPerBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:68"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "BONUS_MULTIPLIER",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:70"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "migrator",
+              "type": "t_contract(IMigratorChef)2987",
+              "src": "contracts/Farm2.sol:72"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "wallet",
+              "type": "t_contract(MasterRANCEWallet)4264",
+              "src": "contracts/Farm2.sol:74"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "poolInfo",
+              "type": "t_array(t_struct(PoolInfo)3017_storage)dyn_storage",
+              "src": "contracts/Farm2.sol:77"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "userInfo",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3007_storage))",
+              "src": "contracts/Farm2.sol:79"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "totalAllocPoint",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:81"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "startBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:83"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4342": {
+              "label": "contract IBEP20"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_contract(IMigratorChef)2987": {
+              "label": "contract IMigratorChef"
+            },
+            "t_contract(MasterRANCEWallet)4264": {
+              "label": "contract MasterRANCEWallet"
+            },
+            "t_array(t_struct(PoolInfo)3017_storage)dyn_storage": {
+              "label": "struct MasterMUSD.PoolInfo[]"
+            },
+            "t_struct(PoolInfo)3017_storage": {
+              "label": "struct MasterMUSD.PoolInfo",
+              "members": [
+                {
+                  "label": "lpToken",
+                  "type": "t_contract(IBEP20)4342"
+                },
+                {
+                  "label": "allocPoint",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "lastRewardBlock",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "accMUSDPerShare",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3007_storage))": {
+              "label": "mapping(uint256 => mapping(address => struct MasterMUSD.UserInfo))"
+            },
+            "t_mapping(t_address,t_struct(UserInfo)3007_storage)": {
+              "label": "mapping(address => struct MasterMUSD.UserInfo)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(UserInfo)3007_storage": {
+              "label": "struct MasterMUSD.UserInfo",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "rewardDebt",
+                  "type": "t_uint256"
+                }
+              ]
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterRANCEWallet": {
+        "src": "contracts/MasterRANCEWallet.sol:8",
+        "version": {
+          "withMetadata": "84dc241d24210a967c70f29191a4d08ee4734a44b33d9ff7cfca52c314b35762",
+          "withoutMetadata": "a0e8871f87a94460c5af09dbbdbf753c2897bc24561667ebae5831fdabc89244",
+          "linkedWithoutMetadata": "a0e8871f87a94460c5af09dbbdbf753c2897bc24561667ebae5831fdabc89244"
+        },
+        "inherit": [
+          "Ownable",
+          "Context"
+        ],
+        "libraries": [
+          "SafeBEP20"
+        ],
+        "methods": [
+          "(address)",
+          "addMasterRANCE(address)",
+          "removeMasterRANCE(address)",
+          "safeTokenTransfer(address,uint256,address)",
+          "safeRANCETransfer(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "MasterRANCEWallet",
+            "src": "contracts/MasterRANCEWallet.sol:15"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterRANCEWallet",
+              "label": "RANCE",
+              "type": "t_contract(IBEP20)4342",
+              "src": "contracts/MasterRANCEWallet.sol:11"
+            },
+            {
+              "contract": "MasterRANCEWallet",
+              "label": "MasterRANCE",
+              "type": "t_address",
+              "src": "contracts/MasterRANCEWallet.sol:12"
+            },
+            {
+              "contract": "MasterRANCEWallet",
+              "label": "masters",
+              "type": "t_mapping(t_address,t_bool)",
+              "src": "contracts/MasterRANCEWallet.sol:13"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4342": {
+              "label": "contract IBEP20"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_address,t_bool)": {
+              "label": "mapping(address => bool)"
+            },
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "IBEP20": {
+        "src": "contracts/interfaces/IBEP20.sol:8",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "SafeBEP20": {
+        "src": "contracts/utils/SafeBEP20.sol:17",
+        "version": {
+          "withMetadata": "b6a287dcfd3237f5abb3d18109e2a8869e762a661c81a43a429580b339f5a36c",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [
+          "Address"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      }
+    },
+    {
+      "OwnableUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:20",
+        "inherit": [
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
+            },
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "ERC1967UpgradeUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:18",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [
+          "StorageSlotUpgradeable",
+          "AddressUpgradeable"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ERC1967UpgradeUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "IBeaconUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol:8",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "implementation()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Initializable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:17",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "UUPSUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:20",
+        "inherit": [
+          "ERC1967UpgradeUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "upgradeTo(address)",
+          "upgradeToAndCall(address,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "UUPSUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:64"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "PausableUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:17",
+        "inherit": [
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "paused()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "PausableUpgradeable",
+              "label": "_paused",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:28"
+            },
+            {
+              "contract": "PausableUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:96"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "AddressUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol:8",
+        "version": {
+          "withMetadata": "fde3f15d183e5e4adb501d42de9202b654fb1ba86f54e91669d295220ea9dc67",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "ContextUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:16",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ContextUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "StorageSlotUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol:31",
+        "version": {
+          "withMetadata": "d97ce47a76206ff30e04246fd1439c8c09a0fbbdda81ab79e81107994b19dce6",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:19",
+        "inherit": [
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:27"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Ownable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:20"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "Address": {
+        "src": "@openzeppelin/contracts/utils/Address.sol:8",
+        "version": {
+          "withMetadata": "26611e32a15a00144207b601573c8db0b03bac6851e9edb16d9974217ed40294",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "delegatecall",
+            "src": "@openzeppelin/contracts/utils/Address.sol:185"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:15",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "SafeMath": {
+        "src": "@openzeppelin/contracts/utils/math/SafeMath.sol:15",
+        "version": {
+          "withMetadata": "0023e734e710c06754cbf37a92d68bb6f42a4cc6d154a145d945ec780b06c2f2",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "IMigratorChef": {
+        "src": "contracts/Farm2.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "migrate(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterRANCE": {
+        "src": "contracts/Farm1.sol:36",
+        "version": {
+          "withMetadata": "beca92e67f12d24dc1f58d06fe82b02a4068b0ca2d788f572889c6d5e5ec3eac",
+          "withoutMetadata": "bb2d18e1b2fb70737abcb732dc6637adca5afc5c73264ba8842d207484c7ced7",
+          "linkedWithoutMetadata": "bb2d18e1b2fb70737abcb732dc6637adca5afc5c73264ba8842d207484c7ced7"
+        },
+        "inherit": [
+          "OwnableUpgradeable",
+          "UUPSUpgradeable",
+          "ERC1967UpgradeUpgradeable",
+          "PausableUpgradeable",
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "SafeMath",
+          "SafeBEP20"
+        ],
+        "methods": [
+          "initialize(address,uint256,uint256,address)",
+          "updateMultiplier(uint256)",
+          "poolLength()",
+          "add(uint256,address,bool)",
+          "set(uint256,uint256,bool)",
+          "setMigrator(address)",
+          "migrate(uint256)",
+          "getMultiplier(uint256,uint256)",
+          "pendingRANCE(uint256,address)",
+          "massUpdatePools()",
+          "updatePool(uint256)",
+          "deposit(uint256,uint256)",
+          "withdraw(uint256,uint256)",
+          "compound()",
+          "emergencyWithdraw(uint256)",
+          "pause()",
+          "unpause()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterRANCE",
+              "label": "RANCE",
+              "type": "t_contract(IBEP20)4322",
+              "src": "contracts/Farm1.sol:66"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "RANCEPerBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:68"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "BONUS_MULTIPLIER",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:70"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "migrator",
+              "type": "t_contract(IMigratorChef)1871",
+              "src": "contracts/Farm1.sol:72"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "wallet",
+              "type": "t_contract(MasterRANCEWallet)4244",
+              "src": "contracts/Farm1.sol:74"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "poolInfo",
+              "type": "t_array(t_struct(PoolInfo)1901_storage)dyn_storage",
+              "src": "contracts/Farm1.sol:77"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "userInfo",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))",
+              "src": "contracts/Farm1.sol:79"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "totalAllocPoint",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:81"
+            },
+            {
+              "contract": "MasterRANCE",
+              "label": "startBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm1.sol:83"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4322": {
+              "label": "contract IBEP20"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_contract(IMigratorChef)1871": {
+              "label": "contract IMigratorChef"
+            },
+            "t_contract(MasterRANCEWallet)4244": {
+              "label": "contract MasterRANCEWallet"
+            },
+            "t_array(t_struct(PoolInfo)1901_storage)dyn_storage": {
+              "label": "struct MasterRANCE.PoolInfo[]"
+            },
+            "t_struct(PoolInfo)1901_storage": {
+              "label": "struct MasterRANCE.PoolInfo",
+              "members": [
+                {
+                  "label": "lpToken",
+                  "type": "t_contract(IBEP20)4322"
+                },
+                {
+                  "label": "allocPoint",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "lastRewardBlock",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "accRANCEPerShare",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))": {
+              "label": "mapping(uint256 => mapping(address => struct MasterRANCE.UserInfo))"
+            },
+            "t_mapping(t_address,t_struct(UserInfo)1891_storage)": {
+              "label": "mapping(address => struct MasterRANCE.UserInfo)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(UserInfo)1891_storage": {
+              "label": "struct MasterRANCE.UserInfo",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "rewardDebt",
+                  "type": "t_uint256"
+                }
+              ]
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterMUSD": {
+        "src": "contracts/Farm2.sol:36",
+        "version": {
+          "withMetadata": "e7f707af88b1be870ec03658d7d0b129a789555ba86290c9f8ec5cda743de47d",
+          "withoutMetadata": "e31c0d478171037565883c86908f3873f5837d4124fe82131476512bb4338a5c",
+          "linkedWithoutMetadata": "e31c0d478171037565883c86908f3873f5837d4124fe82131476512bb4338a5c"
+        },
+        "inherit": [
+          "OwnableUpgradeable",
+          "UUPSUpgradeable",
+          "ERC1967UpgradeUpgradeable",
+          "PausableUpgradeable",
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "SafeMath",
+          "SafeBEP20"
+        ],
+        "methods": [
+          "initialize(address,uint256,uint256,address)",
+          "updateMultiplier(uint256)",
+          "poolLength()",
+          "add(uint256,address,bool)",
+          "set(uint256,uint256,bool)",
+          "setMigrator(address)",
+          "migrate(uint256)",
+          "getMultiplier(uint256,uint256)",
+          "pendingMUSD(uint256,address)",
+          "massUpdatePools()",
+          "updatePool(uint256)",
+          "deposit(uint256,uint256)",
+          "withdraw(uint256,uint256)",
+          "compound()",
+          "emergencyWithdraw(uint256)",
+          "pause()",
+          "unpause()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterMUSD",
+              "label": "MUSD",
+              "type": "t_contract(IBEP20)4322",
+              "src": "contracts/Farm2.sol:66"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "MUSDPerBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:68"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "BONUS_MULTIPLIER",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:70"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "migrator",
+              "type": "t_contract(IMigratorChef)2987",
+              "src": "contracts/Farm2.sol:72"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "wallet",
+              "type": "t_contract(MasterRANCEWallet)4244",
+              "src": "contracts/Farm2.sol:74"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "poolInfo",
+              "type": "t_array(t_struct(PoolInfo)3017_storage)dyn_storage",
+              "src": "contracts/Farm2.sol:77"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "userInfo",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3007_storage))",
+              "src": "contracts/Farm2.sol:79"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "totalAllocPoint",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:81"
+            },
+            {
+              "contract": "MasterMUSD",
+              "label": "startBlock",
+              "type": "t_uint256",
+              "src": "contracts/Farm2.sol:83"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4322": {
+              "label": "contract IBEP20"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_contract(IMigratorChef)2987": {
+              "label": "contract IMigratorChef"
+            },
+            "t_contract(MasterRANCEWallet)4244": {
+              "label": "contract MasterRANCEWallet"
+            },
+            "t_array(t_struct(PoolInfo)3017_storage)dyn_storage": {
+              "label": "struct MasterMUSD.PoolInfo[]"
+            },
+            "t_struct(PoolInfo)3017_storage": {
+              "label": "struct MasterMUSD.PoolInfo",
+              "members": [
+                {
+                  "label": "lpToken",
+                  "type": "t_contract(IBEP20)4322"
+                },
+                {
+                  "label": "allocPoint",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "lastRewardBlock",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "accMUSDPerShare",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)3007_storage))": {
+              "label": "mapping(uint256 => mapping(address => struct MasterMUSD.UserInfo))"
+            },
+            "t_mapping(t_address,t_struct(UserInfo)3007_storage)": {
+              "label": "mapping(address => struct MasterMUSD.UserInfo)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(UserInfo)3007_storage": {
+              "label": "struct MasterMUSD.UserInfo",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "rewardDebt",
+                  "type": "t_uint256"
+                }
+              ]
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "MasterRANCEWallet": {
+        "src": "contracts/MasterRANCEWallet.sol:8",
+        "version": {
+          "withMetadata": "9d43441eff30b520661d6685c25c3a370c9e13ccd4ea9b264ec2ab529fb3effe",
+          "withoutMetadata": "6a21a19c6330c8917494bd9a410f5941f823dd6330fc73af95e04f3a0894f0a3",
+          "linkedWithoutMetadata": "6a21a19c6330c8917494bd9a410f5941f823dd6330fc73af95e04f3a0894f0a3"
+        },
+        "inherit": [
+          "Ownable",
+          "Context"
+        ],
+        "libraries": [
+          "SafeBEP20"
+        ],
+        "methods": [
+          "(address)",
+          "setMasterRANCE(address)",
+          "safeTokenTransfer(address,uint256,address)",
+          "safeRANCETransfer(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "MasterRANCEWallet",
+            "src": "contracts/MasterRANCEWallet.sol:14"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "MasterRANCEWallet",
+              "label": "RANCE",
+              "type": "t_contract(IBEP20)4322",
+              "src": "contracts/MasterRANCEWallet.sol:11"
+            },
+            {
+              "contract": "MasterRANCEWallet",
+              "label": "MasterRANCE",
+              "type": "t_address",
+              "src": "contracts/MasterRANCEWallet.sol:12"
+            }
+          ],
+          "types": {
+            "t_contract(IBEP20)4322": {
+              "label": "contract IBEP20"
+            },
+            "t_address": {
+              "label": "address"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "IBEP20": {
+        "src": "contracts/interfaces/IBEP20.sol:8",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "SafeBEP20": {
+        "src": "contracts/utils/SafeBEP20.sol:17",
+        "version": {
+          "withMetadata": "b6a287dcfd3237f5abb3d18109e2a8869e762a661c81a43a429580b339f5a36c",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [
+          "Address"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      }
+    },
+    {
+      "OwnableUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:20",
+        "inherit": [
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
+            },
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "ERC1967UpgradeUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:18",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [
+          "StorageSlotUpgradeable",
+          "AddressUpgradeable"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ERC1967UpgradeUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "IBeaconUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol:8",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "implementation()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Initializable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:17",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "UUPSUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:20",
+        "inherit": [
+          "ERC1967UpgradeUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "upgradeTo(address)",
+          "upgradeToAndCall(address,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "UUPSUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:64"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "PausableUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:17",
+        "inherit": [
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "paused()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "PausableUpgradeable",
+              "label": "_paused",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:28"
+            },
+            {
+              "contract": "PausableUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:96"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "AddressUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol:8",
+        "version": {
+          "withMetadata": "fde3f15d183e5e4adb501d42de9202b654fb1ba86f54e91669d295220ea9dc67",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "ContextUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:16",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ContextUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "StorageSlotUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol:31",
+        "version": {
+          "withMetadata": "d97ce47a76206ff30e04246fd1439c8c09a0fbbdda81ab79e81107994b19dce6",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:19",
+        "inherit": [
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:27"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Ownable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:20"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "Address": {
+        "src": "@openzeppelin/contracts/utils/Address.sol:8",
+        "version": {
+          "withMetadata": "26611e32a15a00144207b601573c8db0b03bac6851e9edb16d9974217ed40294",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "delegatecall",
+            "src": "@openzeppelin/contracts/utils/Address.sol:185"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:15",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "SafeMath": {
+        "src": "@openzeppelin/contracts/utils/math/SafeMath.sol:15",
+        "version": {
+          "withMetadata": "0023e734e710c06754cbf37a92d68bb6f42a4cc6d154a145d945ec780b06c2f2",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "IMigratorChef": {
         "src": "contracts/Farm.sol:16",
         "inherit": [],
         "libraries": [],

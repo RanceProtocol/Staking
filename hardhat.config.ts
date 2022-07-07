@@ -44,7 +44,7 @@ module.exports = {
       gasPrice: parseInt(utils.parseUnits("132", "gwei")),
     },
     cromainnet: {
-      url: "https://evm-cronos.crypto.org",
+      url: "https://rpc.nebkas.ro/",
       chainId: 25,
       accounts: {mnemonic, path: "m/44'/60'/0'/0", inittialIndex: 0, count: 10},
     },
