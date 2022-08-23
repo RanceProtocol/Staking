@@ -49,26 +49,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20__factory>;
     getContractFactory(
-      name: "CROPredict",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.CROPredict__factory>;
-    getContractFactory(
-      name: "IBEP20",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IBEP20__factory>;
-    getContractFactory(
-      name: "Ownable",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Ownable__factory>;
-    getContractFactory(
-      name: "IMigratorChef",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMigratorChef__factory>;
-    getContractFactory(
-      name: "MasterCRP",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MasterCRP__factory>;
-    getContractFactory(
       name: "IMigratorChef",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMigratorChef__factory>;
@@ -81,9 +61,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMigratorChef__factory>;
     getContractFactory(
-      name: "MasterMUSD",
+      name: "MasterUSDC",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MasterMUSD__factory>;
+    ): Promise<Contracts.MasterUSDC__factory>;
     getContractFactory(
       name: "IBEP20",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -96,10 +76,6 @@ declare module "hardhat/types/runtime" {
       name: "LPToken2",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LPToken2__factory>;
-    getContractFactory(
-      name: "MasterCRPWallet",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MasterCRPWallet__factory>;
     getContractFactory(
       name: "MasterRANCEWallet",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -163,31 +139,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20>;
     getContractAt(
-      name: "CROPredict",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.CROPredict>;
-    getContractAt(
-      name: "IBEP20",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IBEP20>;
-    getContractAt(
-      name: "Ownable",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Ownable>;
-    getContractAt(
-      name: "IMigratorChef",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IMigratorChef>;
-    getContractAt(
-      name: "MasterCRP",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MasterCRP>;
-    getContractAt(
       name: "IMigratorChef",
       address: string,
       signer?: ethers.Signer
@@ -203,10 +154,10 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IMigratorChef>;
     getContractAt(
-      name: "MasterMUSD",
+      name: "MasterUSDC",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MasterMUSD>;
+    ): Promise<Contracts.MasterUSDC>;
     getContractAt(
       name: "IBEP20",
       address: string,
@@ -222,11 +173,6 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.LPToken2>;
-    getContractAt(
-      name: "MasterCRPWallet",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MasterCRPWallet>;
     getContractAt(
       name: "MasterRANCEWallet",
       address: string,

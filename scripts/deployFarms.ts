@@ -1,18 +1,18 @@
 import { ethers, upgrades } from "hardhat";
-const { WALLET, RANCE, MUSD } = process.env;
+const { WALLET, RANCE, USDC } = process.env;
 import { MasterRANCEWallet } from "../src/types/MasterRANCEWallet";
-import {MasterMUSD} from "../src/types/MasterMUSD";
+import {MasterUSDC} from "../src/types/MasterUSDC";
 
 async function main() {
   // We get the contract to deploy
   const RANCEPerBlock = 10000000000;
-  const MUSDPerBlock = 10000000000;
+  const USDCPerBlock = 10000000000;
 
   const wallet: MasterRANCEWallet = (await ethers.getContractAt("MasterRANCEWallet", WALLET!)) as MasterRANCEWallet;
   const Farm1 = await ethers.getContractFactory("MasterRANCE");
-  const Farm2 = await ethers.getContractFactory("MasterMUSD");
+  const Farm2 = await ethers.getContractFactory("MasterUSDC");
   const farm1 = await upgrades.deployProxy(Farm1, [RANCE, RANCEPerBlock, 0, wallet.address], {kind: "uups"});
-  const farm2 = await upgrades.deployProxy(Farm2, [MUSD, MUSDPerBlock, 0, wallet.address], {kind: "uups"}) as MasterMUSD;
+  const farm2 = await upgrades.deployProxy(Farm2, [USDC, USDCPerBlock, 0, wallet.address], {kind: "uups"}) as MasterUSDC;
   await wallet.addMasterRANCE(farm1.address);
   await wallet.addMasterRANCE(farm2.address);
 

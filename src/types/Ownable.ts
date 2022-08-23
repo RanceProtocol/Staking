@@ -20,16 +20,25 @@ export interface OwnableInterface extends utils.Interface {
   contractName: "Ownable";
   functions: {
     "owner()": FunctionFragment;
+    "renounceOwnership()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
   };
 
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "renounceOwnership",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
   ): string;
 
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceOwnership",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "transferOwnership",
     data: BytesLike
@@ -80,6 +89,10 @@ export interface Ownable extends BaseContract {
   functions: {
     owner(overrides?: CallOverrides): Promise<[string]>;
 
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -88,6 +101,10 @@ export interface Ownable extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
+  renounceOwnership(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   transferOwnership(
     newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -95,6 +112,8 @@ export interface Ownable extends BaseContract {
 
   callStatic: {
     owner(overrides?: CallOverrides): Promise<string>;
+
+    renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     transferOwnership(
       newOwner: string,
@@ -116,6 +135,10 @@ export interface Ownable extends BaseContract {
   estimateGas: {
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -124,6 +147,10 @@ export interface Ownable extends BaseContract {
 
   populateTransaction: {
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,

@@ -26,14 +26,14 @@ interface IMigratorChef {
     function migrate(IBEP20 token) external returns (IBEP20);
 }
 
-// MasterRANCE is the master of MUSD. He can distribute MUSD and he is a fair guy.
+// MasterRANCE is the master of USDC. He can distribute USDC and he is a fair guy.
 //
 // Note that it's ownable and the owner wields tremendous power. The ownership
-// will be transferred to a governance smart contract once MUSD is sufficiently
+// will be transferred to a governance smart contract once USDC is sufficiently
 // distributed and the community can show to govern itself.
 //
 // Have fun reading it. Hopefully it's bug-free. God bless.
-contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, OwnableUpgradeable{
+contract MasterUSDC is Initializable, PausableUpgradeable, UUPSUpgradeable, OwnableUpgradeable{
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 
@@ -42,13 +42,13 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
         uint256 amount; // How many LP tokens the user has provided.
         uint256 rewardDebt; // Reward debt. See explanation below.
         //
-        // We do some fancy math here. Basically, any point in time, the amount of MUSDs
+        // We do some fancy math here. Basically, any point in time, the amount of USDCs
         // entitled to a user but is pending to be distributed is:
         //
-        //   pending reward = (user.amount * pool.accMUSDPerShare) - user.rewardDebt
+        //   pending reward = (user.amount * pool.accUSDCPerShare) - user.rewardDebt
         //
         // Whenever a user deposits or withdraws LP tokens to a pool. Here's what happens:
-        //   1. The pool's `accMUSDPerShare` (and `lastRewardBlock`) gets updated.
+        //   1. The pool's `accUSDCPerShare` (and `lastRewardBlock`) gets updated.
         //   2. User receives the pending reward sent to his/her address.
         //   3. User's `amount` gets updated.
         //   4. User's `rewardDebt` gets updated.
@@ -57,20 +57,20 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
     // Info of each pool.
     struct PoolInfo {
         IBEP20 lpToken; // Address of LP token contract.
-        uint256 allocPoint; // How many allocation points assigned to this pool. MUSDs to distribute per block.
-        uint256 lastRewardBlock; // Last block number that MUSDs distribution occurs.
-        uint256 accMUSDPerShare; // Accumulated MUSDs per share, times 1e12. See below.
+        uint256 allocPoint; // How many allocation points assigned to this pool. USDCs to distribute per block.
+        uint256 lastRewardBlock; // Last block number that USDCs distribution occurs.
+        uint256 accUSDCPerShare; // Accumulated USDCs per share, times 1e12. See below.
     }
 
-    // The MUSD TOKEN!
-    IBEP20 public MUSD;
-    // MUSD tokens distributed per block.
-    uint256 public MUSDPerBlock;
+    // The USDC TOKEN!
+    IBEP20 public USDC;
+    // USDC tokens distributed per block.
+    uint256 public USDCPerBlock;
     // Bonus muliplier for early stakers.
     uint256 public BONUS_MULTIPLIER;
     // The migrator contract. It has a lot of power. Can only be set through governance (owner).
     IMigratorChef public migrator;
-    //contract holding MUSD tokens
+    //contract holding USDC tokens
     MasterRANCEWallet public wallet;
 
     // Info of each pool.
@@ -79,7 +79,7 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
     mapping(uint256 => mapping(address => UserInfo)) public userInfo;
     // Total allocation points. Must be the sum of all allocation points in all pools.
     uint256 public totalAllocPoint;
-    // The block number when MUSD mining starts.
+    // The block number when USDC mining starts.
     uint256 public startBlock;
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
@@ -91,24 +91,24 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
     );
 
     function initialize(
-        IBEP20 _MUSD,
-        uint256 _MUSDPerBlock,
+        IBEP20 _USDC,
+        uint256 _USDCPerBlock,
         uint256 _startBlock,
         MasterRANCEWallet _wallet
     ) external initializer {
         __Ownable_init();
-        MUSD = _MUSD;
-        MUSDPerBlock = _MUSDPerBlock;
+        USDC = _USDC;
+        USDCPerBlock = _USDCPerBlock;
         startBlock = _startBlock;
         wallet = _wallet;
 
         // staking pool
         poolInfo.push(
             PoolInfo({
-                lpToken: _MUSD,
+                lpToken: _USDC,
                 allocPoint: 200,
                 lastRewardBlock: startBlock,
-                accMUSDPerShare: 0
+                accUSDCPerShare: 0
             })
         );
 
@@ -146,12 +146,12 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
                 lpToken: _lpToken,
                 allocPoint: _allocPoint,
                 lastRewardBlock: lastRewardBlock,
-                accMUSDPerShare: 0
+                accUSDCPerShare: 0
             })
         );
     }
 
-    // Update the given pool's MUSD allocation point. Can only be called by the owner.
+    // Update the given pool's USDC allocation point. Can only be called by the owner.
     function set(
         uint256 _pid,
         uint256 _allocPoint,
@@ -196,34 +196,34 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
         return _to.sub(_from).mul(BONUS_MULTIPLIER);
     }
 
-    // View function to see pending MUSDs on frontend.
-    function pendingMUSD(uint256 _pid, address _user)
+    // View function to see pending USDCs on frontend.
+    function pendingUSDC(uint256 _pid, address _user)
         external
         view
         returns (uint256)
     {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_user];
-        uint256 accMUSDPerShare = pool.accMUSDPerShare;
+        uint256 accUSDCPerShare = pool.accUSDCPerShare;
         uint256 lpSupply = pool.lpToken.balanceOf(address(this));
         if (block.number > pool.lastRewardBlock && lpSupply != 0) {
             uint256 multiplier = getMultiplier(
                 pool.lastRewardBlock,
                 block.number
             );
-            uint256 MUSDReward = multiplier
-            .mul(MUSDPerBlock)
+            uint256 USDCReward = multiplier
+            .mul(USDCPerBlock)
             .mul(pool.allocPoint)
             .div(totalAllocPoint);
-            uint256 MUSDBal = MUSD.balanceOf(address(wallet));
-            if (MUSDReward >= MUSDBal) {
-                MUSDReward = MUSDBal;
+            uint256 USDCBal = USDC.balanceOf(address(wallet));
+            if (USDCReward >= USDCBal) {
+                USDCReward = USDCBal;
             }
-            accMUSDPerShare = accMUSDPerShare.add(
-                MUSDReward.mul(1e30).div(lpSupply)
+            accUSDCPerShare = accUSDCPerShare.add(
+                USDCReward.mul(1e30).div(lpSupply)
             );
         }
-        return user.amount.mul(accMUSDPerShare).div(1e30).sub(user.rewardDebt);
+        return user.amount.mul(accUSDCPerShare).div(1e30).sub(user.rewardDebt);
     }
 
     // Update reward variables for all pools. Be careful of gas spending!
@@ -246,22 +246,22 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
             return;
         }
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
-        uint256 MUSDReward = multiplier
-            .mul(MUSDPerBlock)
+        uint256 USDCReward = multiplier
+            .mul(USDCPerBlock)
             .mul(pool.allocPoint)
             .div(totalAllocPoint);
-        uint256 MUSDBal = MUSD.balanceOf(address(wallet));
-        if (MUSDReward >= MUSDBal) {
-            MUSDReward = MUSDBal;
+        uint256 USDCBal = USDC.balanceOf(address(wallet));
+        if (USDCReward >= USDCBal) {
+            USDCReward = USDCBal;
         }
 
-        pool.accMUSDPerShare = pool.accMUSDPerShare.add(
-            MUSDReward.mul(1e30).div(lpSupply)
+        pool.accUSDCPerShare = pool.accUSDCPerShare.add(
+            USDCReward.mul(1e30).div(lpSupply)
         );
         pool.lastRewardBlock = block.number;
     }
 
-    // Deposit LP tokens to MasterMUSD for MUSD allocation.
+    // Deposit LP tokens to MasterUSDC for USDC allocation.
     function deposit(uint256 _pid, uint256 _amount) public whenNotPaused {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
@@ -269,11 +269,11 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
         if (user.amount > 0) {
             uint256 pending = user
             .amount
-            .mul(pool.accMUSDPerShare)
+            .mul(pool.accUSDCPerShare)
             .div(1e30)
             .sub(user.rewardDebt);
             if (pending > 0) {
-                safeMUSDTransfer(msg.sender, pending);
+                safeUSDCTransfer(msg.sender, pending);
             }
         }
         if (_amount > 0) {
@@ -287,32 +287,32 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
                 pool.lpToken.balanceOf(address(this)).sub(balBefore)
             );
         }
-        user.rewardDebt = user.amount.mul(pool.accMUSDPerShare).div(1e30);
+        user.rewardDebt = user.amount.mul(pool.accUSDCPerShare).div(1e30);
         emit Deposit(msg.sender, _pid, _amount);
     }
 
-    // Withdraw LP tokens from MasterMUSD.
+    // Withdraw LP tokens from MasterUSDC.
     function withdraw(uint256 _pid, uint256 _amount) public whenNotPaused {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
         require(user.amount >= _amount, "withdraw: not good");
 
         updatePool(_pid);
-        uint256 pending = user.amount.mul(pool.accMUSDPerShare).div(1e30).sub(
+        uint256 pending = user.amount.mul(pool.accUSDCPerShare).div(1e30).sub(
             user.rewardDebt
         );
         if (pending > 0) {
-            safeMUSDTransfer(msg.sender, pending);
+            safeUSDCTransfer(msg.sender, pending);
         }
         if (_amount > 0) {
             user.amount = user.amount.sub(_amount);
             pool.lpToken.safeTransfer(address(msg.sender), _amount);
         }
-        user.rewardDebt = user.amount.mul(pool.accMUSDPerShare).div(1e30);
+        user.rewardDebt = user.amount.mul(pool.accUSDCPerShare).div(1e30);
         emit Withdraw(msg.sender, _pid, _amount);
     }
     
-    // helps users compound their MUSD rewards in pool 0 in a single ttansaction
+    // helps users compound their USDC rewards in pool 0 in a single ttansaction
     function compound() public whenNotPaused{
         PoolInfo storage pool = poolInfo[0];
         UserInfo storage user = userInfo[0][msg.sender];
@@ -321,21 +321,21 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
         if (user.amount > 0) {
             uint256 pending = user
                 .amount
-                .mul(pool.accMUSDPerShare)
+                .mul(pool.accUSDCPerShare)
                 .div(1e30)
                 .sub(user.rewardDebt);
  
             uint256 balBefore = pool.lpToken.balanceOf(address(this));
             
             if (pending > 0) {
-                safeMUSDTransfer(address(this), pending);
+                safeUSDCTransfer(address(this), pending);
             }
             
             user.amount = user.amount.add(
                 pool.lpToken.balanceOf(address(this)).sub(balBefore)
             );
             
-            user.rewardDebt = user.amount.mul(pool.accMUSDPerShare).div(1e30);
+            user.rewardDebt = user.amount.mul(pool.accUSDCPerShare).div(1e30);
             emit Withdraw(msg.sender, 0, pending);
             emit Deposit(msg.sender, 0, pending);
         }
@@ -352,9 +352,9 @@ contract MasterMUSD is Initializable, PausableUpgradeable, UUPSUpgradeable, Owna
         emit EmergencyWithdraw(msg.sender, _pid, amount);
     }
 
-    // Safe MUSD transfer function, just in case if rounding error causes pool to not have enough MUSDs.
-    function safeMUSDTransfer(address _to, uint256 _amount) internal {
-        wallet.safeTokenTransfer(_to, _amount, MUSD);
+    // Safe USDC transfer function, just in case if rounding error causes pool to not have enough USDCs.
+    function safeUSDCTransfer(address _to, uint256 _amount) internal {
+        wallet.safeTokenTransfer(_to, _amount, USDC);
     }
 
     //pause deposits and withdrawals and allow only emergency withdrawals(forfeit funds)

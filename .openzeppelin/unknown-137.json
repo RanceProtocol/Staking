@@ -1,0 +1,507 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0xb0747FA282884C281fE48cbe1A7CD459c10947F3",
+      "txHash": "0x6992a6fbd72ba3f97b3a22827e592c5c7a8a2bf1b032db45563831a8654cd366",
+      "kind": "uups"
+    },
+    {
+      "address": "0x07cf8533DfAd9e16d7009Ff74683b47EFC0f4748",
+      "txHash": "0x5f5889cf7c5dd27b21d1276a8cef47abed5806083dfbaf13e80bc1e75837d8cb",
+      "kind": "uups"
+    },
+    {
+      "address": "0x723713688fd98EEe8F0Dbb5216de91A02D207083",
+      "txHash": "0x3da401080d020a5153aca630d5418b22b6c4209bb0ee1b903c2267e46831f3c9",
+      "kind": "uups"
+    },
+    {
+      "address": "0x6cEFfFe285B0F883eC726f31Bff5a188A60fC193",
+      "txHash": "0x28d1885e0644878afeae2761523d45b089847d7dfbeb5dc05c70be05be666894",
+      "kind": "uups"
+    },
+    {
+      "address": "0x378520d445d3379497f991f7fef7E613014c20b2",
+      "txHash": "0xba9baa49ceb2f45a7f322a3a4f70b2027e14a57d1400b80e4aff110e50c38773",
+      "kind": "uups"
+    },
+    {
+      "address": "0x66963e06Bf63a08E7B23B31406dB4B6F529fcf82",
+      "txHash": "0x50ab675ce9f68373b5f2bd47b87c3d7a302ef7ac564274d4b7d9ca06287ff7fb",
+      "kind": "uups"
+    },
+    {
+      "address": "0xaca2d837a52e141e9a6cEbE33f685cc90F311356",
+      "txHash": "0xab663b5aecc9c4bbef71857efe430b218377e6ac1f450a3130370c9f8d697286",
+      "kind": "uups"
+    },
+    {
+      "address": "0x0c9F35653E12220112B70434279b7c17eB077251",
+      "txHash": "0x5a31cb51a15385b9e6b817158b002d664faa3483820f6f697c81baa80d7a7b10",
+      "kind": "uups"
+    },
+    {
+      "address": "0x42081FEcE4BC26A65CCCb3B352379e1f3663B435",
+      "txHash": "0x7fca16c8dbc83dedc72bbfbf5eaae12760ffd046ad63564e8dffa3017a63483e",
+      "kind": "uups"
+    },
+    {
+      "address": "0x252cf390215BBFaB36790011D3240676C327b64d",
+      "txHash": "0xc0f24fa068920c9d34de9ec598f078329f39c79d226cc4de3d9854bb9b1afb17",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9BdD2716Df5b173C54f6f08b4C38cC849F162139",
+      "txHash": "0xeb31f1c79ac5b0e736ed00d4e06cf27aeffa292c5746c6d5722631f053b797df",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9cB4E3AB0046F96E9D8B89d59E3fDc8664705CD5",
+      "txHash": "0x46307243cc4a70da1728ab44f030b2f4ebe9108dc1b4018be58ebb3dbfc9c51b",
+      "kind": "uups"
+    },
+    {
+      "address": "0xF7b9f0d97a1467bDB3916CC99a608467E79D3434",
+      "txHash": "0x74ca9f7a9c01ede971017055a2233b2f576817b24939e7519a28d66f0207a69b",
+      "kind": "uups"
+    },
+    {
+      "address": "0x6af9419A14844B01122f611038a84f8076ADc466",
+      "txHash": "0xd3f46e2a5dcf25b3369e4f5373bcc91878750645badb312a64c21d8b67cc7ea0",
+      "kind": "uups"
+    },
+    {
+      "address": "0xbf5dd101084a5A2bF4817990FbFaBE0b4bB20d54",
+      "txHash": "0xd2b25f285db4033937d65dd565c0db7a1b10073c5e1207d7161ef1c3e1656acd",
+      "kind": "uups"
+    },
+    {
+      "address": "0x3E6C3B1E56ebFD96913065F3CDF6B56D2B0DD095",
+      "txHash": "0x9372834ea13786572503d938f074e21413dad5de14cb468c9e47cd07f17305c0",
+      "kind": "uups"
+    },
+    {
+      "address": "0x176B86eD0ff5757daCA879974EBB214d5d104eA1",
+      "txHash": "0xb05e6d06a22ffed9b650ee5299a8b80fc299ffed88041bd1979d9be2c561604e",
+      "kind": "uups"
+    },
+    {
+      "address": "0x7955EBA17109660B292f7E14de23F40964F1C3AF",
+      "txHash": "0x3f83424c6dd5a82c9801d1402a0ec0ed01664617315bdb3157336b27b9324049",
+      "kind": "uups"
+    },
+    {
+      "address": "0x0fEA4FEc3F9AC57991A5097265F9f514a4aF3c7d",
+      "txHash": "0x8039e1a99ad9db6241e6c32bcee10139075f32e5a71c3ddc834703f6fc3f71d6",
+      "kind": "uups"
+    },
+    {
+      "address": "0xCECB74Eae49104eBCfcB1602F1319838b59eC04c",
+      "txHash": "0x5e55a42db77b392226099896592ca2dd7e4c2ade70d2b0e36f51bbdd03c29b74",
+      "kind": "uups"
+    },
+    {
+      "address": "0x4eDBabAC2352176A1B0C7F2A93Ac69F061A1F37e",
+      "txHash": "0x19054efbd45b08888dbb1902f6ef26574d222f1fd989c4c58211834fc328e5eb",
+      "kind": "uups"
+    },
+    {
+      "address": "0x72983246d265C701aee5511CEe5ec3139Dd805D3",
+      "txHash": "0xde1dbfedd494fe0d16058f281a0e1a2f53c8e0cb3538792626b848d8b98a5b8e",
+      "kind": "uups"
+    },
+    {
+      "address": "0xbF77780d7f1b593c6C017B1F607F85F5e7501586",
+      "txHash": "0x52a4477162cb5130884c89de3b15f2232a1b80eb7d6961613ecca55975460cca",
+      "kind": "uups"
+    },
+    {
+      "address": "0xD0aEa700345948e5231C8EE9A637E5dD44443FcD",
+      "txHash": "0xc56569c325a1e6aa2cbd5e56c5722a0ea67632683fb13ed7ecd3e8afaa8d16b6",
+      "kind": "uups"
+    },
+    {
+      "address": "0xd28bb38195b1a8A7f29161d897B46a3e8e284692",
+      "txHash": "0x6598770002da0c059c34080551a1f9f0a00a1ca3c939e1196c11d5f695f16f3b",
+      "kind": "uups"
+    },
+    {
+      "address": "0xcfe3Ab15563442B41248076C11BF5AbB63c46e41",
+      "txHash": "0xc844c50e33c8d6a979c66135b778e95f71f80b8b70ac973a772e9c0a12725db9",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "bb2d18e1b2fb70737abcb732dc6637adca5afc5c73264ba8842d207484c7ced7": {
+      "address": "0xec35f18e088dc5BaDaBc3Dfd82780478C9EFaaf0",
+      "txHash": "0x7220ebf8fe9e40283f8c9d4935bee6b316a67aa1c25368b4a61ea42317487753",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:28"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:96"
+          },
+          {
+            "contract": "ERC1967UpgradeUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
+          },
+          {
+            "contract": "UUPSUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:64"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "RANCE",
+            "type": "t_contract(IBEP20)5022",
+            "src": "contracts/Farm1.sol:66"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "RANCEPerBlock",
+            "type": "t_uint256",
+            "src": "contracts/Farm1.sol:68"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "BONUS_MULTIPLIER",
+            "type": "t_uint256",
+            "src": "contracts/Farm1.sol:70"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "migrator",
+            "type": "t_contract(IMigratorChef)2520",
+            "src": "contracts/Farm1.sol:72"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "wallet",
+            "type": "t_contract(MasterRANCEWallet)4944",
+            "src": "contracts/Farm1.sol:74"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "poolInfo",
+            "type": "t_array(t_struct(PoolInfo)2550_storage)dyn_storage",
+            "src": "contracts/Farm1.sol:77"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "userInfo",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)2540_storage))",
+            "src": "contracts/Farm1.sol:79"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "totalAllocPoint",
+            "type": "t_uint256",
+            "src": "contracts/Farm1.sol:81"
+          },
+          {
+            "contract": "MasterRANCE",
+            "label": "startBlock",
+            "type": "t_uint256",
+            "src": "contracts/Farm1.sol:83"
+          }
+        ],
+        "types": {
+          "t_contract(IBEP20)5022": {
+            "label": "contract IBEP20"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(IMigratorChef)2520": {
+            "label": "contract IMigratorChef"
+          },
+          "t_contract(MasterRANCEWallet)4944": {
+            "label": "contract MasterRANCEWallet"
+          },
+          "t_array(t_struct(PoolInfo)2550_storage)dyn_storage": {
+            "label": "struct MasterRANCE.PoolInfo[]"
+          },
+          "t_struct(PoolInfo)2550_storage": {
+            "label": "struct MasterRANCE.PoolInfo",
+            "members": [
+              {
+                "label": "lpToken",
+                "type": "t_contract(IBEP20)5022"
+              },
+              {
+                "label": "allocPoint",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lastRewardBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "accRANCEPerShare",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)2540_storage))": {
+            "label": "mapping(uint256 => mapping(address => struct MasterRANCE.UserInfo))"
+          },
+          "t_mapping(t_address,t_struct(UserInfo)2540_storage)": {
+            "label": "mapping(address => struct MasterRANCE.UserInfo)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_struct(UserInfo)2540_storage": {
+            "label": "struct MasterRANCE.UserInfo",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "rewardDebt",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "928c417b8c3597f7191062e2680ad3f8fab46e02bf8d2c1db475f4fbb38d19b2": {
+      "address": "0x641bD148c7675e6DaB6135893DDCF62B9ECbcA42",
+      "txHash": "0xe8bf6d79e2c0595cdfa5e86a05528657da47e5bf8a1b75dbce7041b6e30a9949",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:28"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:96"
+          },
+          {
+            "contract": "ERC1967UpgradeUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
+          },
+          {
+            "contract": "UUPSUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:64"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "USDC",
+            "type": "t_contract(IBEP20)3224",
+            "src": "contracts/Farm2.sol:66"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "USDCPerBlock",
+            "type": "t_uint256",
+            "src": "contracts/Farm2.sol:68"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "BONUS_MULTIPLIER",
+            "type": "t_uint256",
+            "src": "contracts/Farm2.sol:70"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "migrator",
+            "type": "t_contract(IMigratorChef)1871",
+            "src": "contracts/Farm2.sol:72"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "wallet",
+            "type": "t_contract(MasterRANCEWallet)3146",
+            "src": "contracts/Farm2.sol:74"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "poolInfo",
+            "type": "t_array(t_struct(PoolInfo)1901_storage)dyn_storage",
+            "src": "contracts/Farm2.sol:77"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "userInfo",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))",
+            "src": "contracts/Farm2.sol:79"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "totalAllocPoint",
+            "type": "t_uint256",
+            "src": "contracts/Farm2.sol:81"
+          },
+          {
+            "contract": "MasterUSDC",
+            "label": "startBlock",
+            "type": "t_uint256",
+            "src": "contracts/Farm2.sol:83"
+          }
+        ],
+        "types": {
+          "t_contract(IBEP20)3224": {
+            "label": "contract IBEP20"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(IMigratorChef)1871": {
+            "label": "contract IMigratorChef"
+          },
+          "t_contract(MasterRANCEWallet)3146": {
+            "label": "contract MasterRANCEWallet"
+          },
+          "t_array(t_struct(PoolInfo)1901_storage)dyn_storage": {
+            "label": "struct MasterUSDC.PoolInfo[]"
+          },
+          "t_struct(PoolInfo)1901_storage": {
+            "label": "struct MasterUSDC.PoolInfo",
+            "members": [
+              {
+                "label": "lpToken",
+                "type": "t_contract(IBEP20)3224"
+              },
+              {
+                "label": "allocPoint",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lastRewardBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "accUSDCPerShare",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(UserInfo)1891_storage))": {
+            "label": "mapping(uint256 => mapping(address => struct MasterUSDC.UserInfo))"
+          },
+          "t_mapping(t_address,t_struct(UserInfo)1891_storage)": {
+            "label": "mapping(address => struct MasterUSDC.UserInfo)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_struct(UserInfo)1891_storage": {
+            "label": "struct MasterUSDC.UserInfo",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "rewardDebt",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    }
+  }
+}
